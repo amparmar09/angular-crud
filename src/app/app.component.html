@@ -1,1 +1,69 @@
-<router-outlet></router-outlet>
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer [opened]="sideNav" mode="side" position="start">
+        @if (currentUser) {
+        <mat-nav-list>
+            <div class="top-menu">
+                <div class="flex justify-center mt-5 mb-5">
+                    <img height="50px" src="../../../assets/images/probus_newlogo.png" alt="">
+                </div>
+                <mat-divider></mat-divider>
+                <mat-list-item [routerLink]="['/']" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }" class="mt-5">
+                    <button routerLink="card" mat-button class="flex items-center space-x-2">
+                        <mat-icon class="text-base">dashboard</mat-icon>
+                        <span class="text-base">Dashboard</span>
+                    </button>
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/about']" routerLinkActive="active" class="mt-2">
+                    <button routerLink="card" mat-button class="flex items-center space-x-2">
+                        <mat-icon class="text-base">info</mat-icon>
+                        <span class="text-base">About</span>
+                    </button>
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/contact']" routerLinkActive="active" class="mt-2">
+                    <button routerLink="card" mat-button class="flex items-center space-x-2">
+                        <mat-icon class="text-base">contact_phone</mat-icon>
+                        <span class="text-base">Contact</span>
+                    </button>
+                </mat-list-item>
+            </div>
+            <div class="bottom-menu">
+                <mat-list-item [routerLink]="['/login']" routerLinkActive="active" class="mt-2" (click)="logout()">
+                    <button routerLink="card" mat-button class="flex items-center space-x-2">
+                        <mat-icon class="text-base">keyboard_return</mat-icon>
+                        <span class="text-base">Logout</span>
+                    </button>
+                </mat-list-item>
+            </div>
+        </mat-nav-list>
+        }
+    </mat-drawer>
+    <mat-drawer-content class="content">
+        @if (currentUser) {
+        <mat-toolbar color="primary">
+            <button (click)="sideNavToggle()" mat-icon-button class="example-icon"
+                aria-label="Example icon-button with menu icon">
+                <mat-icon class="text-gray-900">{{ sideNav ? 'arrow_back_ios' : 'arrow_forward_ios' }}</mat-icon>
+            </button>
+            <span class="example-spacer"></span>
+            <button mat-icon-button [matMenuTriggerFor]="userProfileMenu" class="example-icon"
+                aria-label="User profile menu">
+                <div class="flex items-center gap-4">
+                    <div class="font-medium dark:text-white">
+                        <div class="text-gray-900">{{ currentUser }}</div>
+                    </div>
+                    <img class="w-10 h-10 rounded-full"
+                        src="https://cdn2.storyasset.link/ahe4PDZx74Sp9y9Q7TVXpdjdnqs2/Probus-ms-yeprffkqqo.png"
+                        alt="User profile image">
+                </div>
+            </button>
+            <mat-menu #userProfileMenu="matMenu">
+                <button mat-menu-item>Edit Profile</button>
+                <button mat-menu-item>View Profile</button>
+            </mat-menu>
+        </mat-toolbar>
+
+        }
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

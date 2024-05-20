@@ -1,0 +1,49 @@
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    box-sizing: border-box;
+}
+
+
+.card-map {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+    width: 97.5%;
+    height: 600px;
+}
+
+.card h6 {
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 30px;
+    color: #333;
+}
+
+.card p {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #666;
+}
+
+.card p span {
+    font-size: 14px;
+    color: #999;
+    font-weight: normal;
+}
+
+.flex-parent {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    /* Adjust height as needed */
+}
+
+.card-map.table-container {
+    flex: 1;
+    /* Allow child to fill remaining space */
+}

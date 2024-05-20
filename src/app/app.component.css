@@ -1,0 +1,45 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-drawer-container {
+    height: 100vh !important;
+
+}
+
+.side-nav-open {
+    width: 70px;
+}
+
+mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    background-color: white;
+}
+
+
+
+mat-drawer {
+    width: 11%;
+}
+
+mat-list-item:hover{
+    background-color: #188fff4b;
+}
+
+
+
+.active {
+    background-color: #188fff2c;
+    border-right: 3 px solid #1890ff;
+}
+
+mat-nav-list {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-nav-list:hover {}
