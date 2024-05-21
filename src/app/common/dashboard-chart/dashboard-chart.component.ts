@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
 
 @Component({
@@ -13,9 +13,14 @@ export class DashboardChartComponent {
   @Input('chartDetails') chartDetails: any;
   allChartObj: any;
 
+  constructor(private _cd: ChangeDetectorRef) {
+
+  }
+
 
   ngAfterViewInit() {
     this.renderChart();
+    this._cd.detectChanges();
   }
 
   renderChart() {   /** @note This function will generate dataset according to Chart type */

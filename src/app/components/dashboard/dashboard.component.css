@@ -10,11 +10,10 @@
 
 .card-map {
     background-color: #fff;
-    padding: 20px;
     border: 1px solid #ddd;
     box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
     width: 97.5%;
-    height: 600px;
+    height: 420px;
 }
 
 .card h6 {
@@ -40,10 +39,85 @@
     display: flex;
     flex-direction: column;
     height: 400px;
-    /* Adjust height as needed */
 }
 
-.card-map.table-container {
-    flex: 1;
-    /* Allow child to fill remaining space */
+.card-map {
+    max-width: 100%;
+    overflow: auto;
+}
+
+.card-map::-webkit-scrollbar {
+    width: 12px;
+    height: 5px;
+}
+
+.card-map::-webkit-scrollbar-thumb {
+    background-color: #1890ff;
+    border-radius: 6px;
+    border: 3px solid #fff;
+    cursor: pointer;
+
+}
+
+.card-map::-webkit-scrollbar-thumb:hover {
+    background-color: #1890ff;
+}
+
+.card-map::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 6px;
+}
+
+.card-map::-webkit-scrollbar-corner {
+    background-color: #f1f1f1;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+
+}
+
+th,
+td {
+    word-wrap: break-word;
+}
+
+:host ::ng-deep .card-map {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+:host ::ng-deep table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+th {
+    background-color: #188fff !important;
+    position: sticky;
+    top: 0;
+    z-index: 8;
+}
+
+:host ::ng-deep th,
+:host ::ng-deep td {
+
+    word-wrap: break-word;
+}
+
+.sticky-paginator {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    z-index: 1000;
+}
+
+
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%;
+    }
 }

@@ -1,39 +1,47 @@
-<div class="flex gap-4 m-5">
+<div class="flex gap-4 m-5 flex-wrap">
     <div class="card">
         <h4>Total Page Views</h4>
         <div class="flex items-center gap-2">
-            <p>4,42,236</p><span class="mb-2 border border-blue-500 bg-blue-200"><mat-icon>
-                    show_chart</mat-icon>59.3%</span>
+            <p>4,42,236</p>
+            <span class="mb-2 border border-blue-500 bg-blue-200">
+                <mat-icon>show_chart</mat-icon>59.3%
+            </span>
         </div>
-        <p>You made an extra 35,000 this year</p>
+        <app-dashboard-chart [chartDetails]="data"></app-dashboard-chart>
     </div>
     <div class="card">
         <h4>Total Users</h4>
         <div class="flex items-center gap-2">
-            <p>4,42,236</p><span class="mb-2 border border-blue-500 bg-blue-200"><mat-icon>
-                    show_chart</mat-icon>59.3%</span>
+            <p>4,42,236</p>
+            <span class="mb-2 border border-blue-500 bg-blue-200">
+                <mat-icon>show_chart</mat-icon>59.3%
+            </span>
         </div>
-        <p>You made an extra 8,900 this year</p>
+        <app-dashboard-chart [chartDetails]="barChart"></app-dashboard-chart>
     </div>
     <div class="card">
         <h4>Total Order</h4>
         <div class="flex items-center gap-2">
-            <p>4,42,236</p><span class="mb-2 border border-yellow-500 bg-yellow-200"><mat-icon>
-                    show_chart</mat-icon>59.3%</span>
+            <p>4,42,236</p>
+            <span class="mb-2 border border-yellow-500 bg-yellow-200">
+                <mat-icon>show_chart</mat-icon>59.3%
+            </span>
         </div>
-        <p>You made an extra 1,943 this year</p>
+        <app-dashboard-chart [chartDetails]="data"></app-dashboard-chart>
     </div>
     <div class="card">
         <h4>Total Sales</h4>
         <div class="flex items-center gap-2">
-            <p>4,42,236</p><span class="mb-2 border border-yellow-500 bg-yellow-200"><mat-icon>
-                    show_chart</mat-icon>59.3%</span>
+            <p>4,42,236</p>
+            <span class="mb-2 border border-yellow-500 bg-yellow-200">
+                <mat-icon>show_chart</mat-icon>59.3%
+            </span>
         </div>
-        <p>You made an extra $20,395 this year</p>
+        <app-dashboard-chart [chartDetails]="barChart"></app-dashboard-chart>
     </div>
 </div>
 <div class="ml-5">
-    <div class="card-map table-container">
+    <div class="card-map">
         <table mat-table [dataSource]="dataSource">
             <!-- Position Column -->
             <ng-container matColumnDef="position">
@@ -43,9 +51,7 @@
 
             <!-- Name Column -->
             <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
-                    Name
-                </th>
+                <th mat-header-cell mat-sort-header *matHeaderCellDef mat-sort-header> Name </th>
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
 
@@ -60,12 +66,22 @@
                 <th mat-header-cell mat-sort-header *matHeaderCellDef> Symbol </th>
                 <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
             </ng-container>
+            <!-- Action column -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element" class="gap-2"> 
+                    <button matTooltip="Edit" matTooltipPosition="left">
+                        <mat-icon color="primary">edit</mat-icon></button>
+                    <button (click)="deleteData($event)" matTooltip="Delete" matTooltipPosition="right">
+                        <mat-icon color="warn">delete</mat-icon></button>
+                </td>
+            </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+        <mat-paginator class="sticky-paginator" [pageSizeOptions]="pagination" showFirstLastButtons
             aria-label="Select page of periodic elements">
         </mat-paginator>
     </div>

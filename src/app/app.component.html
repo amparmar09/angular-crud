@@ -1,10 +1,10 @@
 <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer [opened]="sideNav" mode="side" position="start">
-        @if (currentUser) {
+    @if (currentUser) {
+    <mat-drawer #drawer [mode]="mode" [opened]="sideNav" position="start">
         <mat-nav-list>
             <div class="top-menu">
                 <div class="flex justify-center mt-5 mb-5">
-                    <img height="50px" src="../../../assets/images/probus_newlogo.png" alt="">
+                    <img height="50px" src="../../../assets/images/probus_newlogo.png">
                 </div>
                 <mat-divider></mat-divider>
                 <mat-list-item [routerLink]="['/']" routerLinkActive="active"
@@ -36,8 +36,8 @@
                 </mat-list-item>
             </div>
         </mat-nav-list>
-        }
     </mat-drawer>
+    }
     <mat-drawer-content class="content">
         @if (currentUser) {
         <mat-toolbar color="primary">
