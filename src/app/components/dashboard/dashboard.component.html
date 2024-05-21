@@ -69,8 +69,8 @@
             <!-- Action column -->
             <ng-container matColumnDef="action">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef> Action </th>
-                <td mat-cell *matCellDef="let element" class="gap-2"> 
-                    <button matTooltip="Edit" matTooltipPosition="left">
+                <td mat-cell *matCellDef="let element" class="gap-2">
+                    <button (click)="editData($event)" matTooltip="Edit" matTooltipPosition="left">
                         <mat-icon color="primary">edit</mat-icon></button>
                     <button (click)="deleteData($event)" matTooltip="Delete" matTooltipPosition="right">
                         <mat-icon color="warn">delete</mat-icon></button>
