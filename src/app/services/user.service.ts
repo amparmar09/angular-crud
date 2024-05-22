@@ -32,12 +32,4 @@ export class UserService {
   }
 
 
-  verificationCompany(email: any, otp: any) {
-    let payload = {
-      "email": email,
-      "otp": otp
-    }
-    return this.http.post(`${config.otpverification}`, payload);
-  }
-
 }

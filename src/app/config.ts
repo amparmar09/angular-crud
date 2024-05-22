@@ -1,7 +1,6 @@
-let nodeApi = "http://localhost:4000/api/"
+let url = "http://192.168.1.181:8088/api/"
 
 export const config = {
-    register: `${nodeApi}v1/auth/signup`,
-    login: `${nodeApi}v1/auth/signin`,
-    otpverification: `${nodeApi}v1/auth/verify/otp`
+    register: `${url}Users/AddUser`,
+    login: `${url}Users/Login`,
 }

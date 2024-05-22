@@ -3,10 +3,12 @@ import { catchError, Observable, tap, throwError } from 'rxjs';
 import Swal from 'sweetalert2';
 
 export const customInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
+  console.log("REQUEST::", req);
+
   return next(req).pipe(
     tap(event => {
       if (event instanceof HttpResponse) {
-        console.log("INTERCEPTOR::", event);
+        req.headers.set('Content-Type', 'application/json')
       }
     }),
     catchError(error => {
