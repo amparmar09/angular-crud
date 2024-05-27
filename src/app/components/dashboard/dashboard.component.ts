@@ -9,15 +9,6 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { data } from '../../mode';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = data
-
 
 @Component({
   selector: 'app-dashboard',
@@ -28,9 +19,9 @@ const ELEMENT_DATA: PeriodicElement[] = data
 })
 
 export class DashboardComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'action'];
+  displayedColumns: string[] = ['firstName', 'middleName', 'lastName', 'email', 'imageUrl', 'gender', 'maritalStatus', 'country', 'state', 'city', 'pincode'];
   pagination = [5, 10, 50, 100];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource(data);
 
   @ViewChild(MatPaginator) paginator: MatPaginator | any;
 

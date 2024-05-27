@@ -39,9 +39,7 @@ export class RegisterComponent {
 
   constructor(private _userservices: UserService,
     private _router: Router
-  ) {
-
-  }
+  ) { }
 
   ngOnInit() {
     this.createForm();
@@ -183,7 +181,7 @@ export class RegisterComponent {
     this._userservices.getAllCities(event.target.value).subscribe((res: any) => {
       this.cityList = res.data
       this.filteredCities = this.registerUser.get('city').valueChanges.pipe(startWith(''), map((value: any) => this._filter(value)));
-    }, (error: any) => { 
+    }, (error: any) => {
     })
   }
 
