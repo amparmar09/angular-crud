@@ -28,7 +28,7 @@ export class LoginComponent {
     this.createForm()
   }
 
-  //Toggle function for visible password and hide 
+  //Toggle function for visible password and hide
   toggleButton() {
     this.hide = !this.hide
   }
@@ -41,8 +41,9 @@ export class LoginComponent {
   }
 
   login() {
+    localStorage.setItem('userDetails', this.loginUser)
+    this._router.navigate(['dashboard'])
     this._userService.signinUser(this.loginUser.value).subscribe((res: any) => {
-      localStorage.setItem('userDetails', JSON.stringify(res.data))
       Swal.fire({
         toast: true,
         icon: 'success',
@@ -53,7 +54,6 @@ export class LoginComponent {
         timer: 3000,
         title: 'User login successfully'
       })
-      this._router.navigate(['dashboard'])
     }, (error: any) => {
       Swal.fire({
         toast: true,
