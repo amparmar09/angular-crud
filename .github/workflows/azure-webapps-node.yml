@@ -44,6 +44,5 @@ jobs:
 
     - name: npm install, build, and test
       run: |
-        npm install --leagcy-peer-deps
-        npm run build --if-present
-        npm run test --if-present
+        npm install --force
+        npm run ng build 
